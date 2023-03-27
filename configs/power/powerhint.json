@@ -13,11 +13,20 @@
             "ResetOnInit": true
         },
         {
-            "Name": "TASchedtuneBoost",
-            "Path": "/dev/stune/top-app/schedtune.boost",
+            "Name": "UclampTAMin",
+            "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
             "Values": [
                 "30",
                 "5"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "UclampTALatency",
+            "Path": "/dev/cpuset/top-app/uclamp.latency_sensitive",
+            "Values": [
+                "1",
+                "0"
             ],
             "ResetOnInit": true
         },
@@ -62,7 +71,7 @@
     "Actions": [
         {
             "PowerHint": "INTERACTION",
-            "Node": "TASchedtuneBoost",
+            "Node": "UclampTAMin",
             "Duration": 0,
             "Value": "30"
         },
@@ -77,6 +86,12 @@
             "Node": "PMQoSCpuDmaLatency",
             "Duration": 5000,
             "Value": "0x0000002c"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "UclampTALatency",
+            "Duration": 5000,
+            "Value": "1"
         },
         {
             "PowerHint": "CAMERA_LAUNCH",
