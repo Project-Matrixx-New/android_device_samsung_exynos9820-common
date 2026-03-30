@@ -333,3 +333,15 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Matrixx Stuff
+MATRIXX_MAINTAINER := FrEeRuNnEr4EvEr
+TARGET_SUPPORTED_REFRESH_RATES := 60
+TARGET_CUSTOM_UDFPS := true
+TARGET_DISABLE_EPPE := true
+WITH_GMS := true
+WITH_GMS_COMMS_SUITE := true
+WITH_GMS_AICORE := true
+WITH_BCR := true
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,60)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
