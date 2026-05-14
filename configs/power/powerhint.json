@@ -79,6 +79,7 @@
                 "520000",
                 "0"
             ],
+            "DefaultIndex": 5,
             "ResetOnInit": true
         },
         {
@@ -89,6 +90,77 @@
                 "2340000",
                 "-1"
             ],
+            "DefaultIndex": 2,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPULittleClusterUpRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us",
+            "Values": [
+                "1000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPULittleClusterDownRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us",
+            "Values": [
+                "10000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUMidClusterUpRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us",
+            "Values": [
+                "1000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUMidClusterDownRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us",
+            "Values": [
+                "10000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUBigClusterUpRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us",
+            "Values": [
+                "1000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUBigClusterDownRateLimit",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us",
+            "Values": [
+                "10000",
+                "5000"
+            ],
+            "DefaultIndex": 1,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CDCpuset",
+            "Path": "/dev/cpuset/background/cpus",
+            "Values": [
+                "0-3",
+                "0-2"
+            ],
+            "DefaultIndex": 0,
             "ResetOnInit": true
         }
     ],
@@ -154,16 +226,64 @@
             "Value": "2730000"
         },
         {
+            "PowerHint": "LAUNCH",
+            "Node": "CPULittleClusterUpRateLimit",
+            "Duration": 3000,
+            "Value": "1000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPULittleClusterDownRateLimit",
+            "Duration": 3000,
+            "Value": "10000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPUMidClusterUpRateLimit",
+            "Duration": 3000,
+            "Value": "1000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPUMidClusterDownRateLimit",
+            "Duration": 3000,
+            "Value": "10000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPUBigClusterUpRateLimit",
+            "Duration": 3000,
+            "Value": "1000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPUBigClusterDownRateLimit",
+            "Duration": 3000,
+            "Value": "10000"
+        },
+        {
             "PowerHint": "CAMERA_LAUNCH",
             "Node": "PMQoSCpuDmaLatency",
             "Duration": 1000,
             "Value": "0x0000002c"
         },
         {
+            "PowerHint": "CAMERA_LAUNCH",
+            "Node": "CDCpuset",
+            "Duration": 1000,
+            "Value": "0-2"
+        },
+        {
             "PowerHint": "CAMERA_SHOT",
             "Node": "PMQoSCpuDmaLatency",
             "Duration": 1000,
             "Value": "0x0000002c"
+        },
+        {
+            "PowerHint": "CAMERA_SHOT",
+            "Node": "CDCpuset",
+            "Duration": 1000,
+            "Value": "0-2"
         },
         {
             "PowerHint": "AUDIO_LAUNCH",
